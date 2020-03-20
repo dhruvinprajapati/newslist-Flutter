@@ -28,7 +28,9 @@ class _NewsListPageState extends State<NewsListPage> {
           TextField(
             controller: _controller,
             onSubmitted: (value){
-              
+              if(value.isNotEmpty){
+                vm.search(value);
+              }
             },
             decoration: InputDecoration(
                 labelText: "enter search",
