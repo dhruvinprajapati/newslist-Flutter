@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fresh_news/pages/newsList.dart';
+import 'package:fresh_news/pages/newsListPage.dart';
 import 'package:fresh_news/viewmodels/newsArticleListViewModel.dart';
 import 'package:provider/provider.dart';
 
@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: "fresh news",
       home: ChangeNotifierProvider(
-        child: NewsList(), create: (_) => new NewsArticleListViewModel(),
+        child: NewsListPage(), create: (_) => new NewsArticleListViewModel(),
       )
     );
   }
