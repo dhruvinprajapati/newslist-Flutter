@@ -2,7 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:fresh_news/viewmodels/newsArticleListViewModel.dart';
 import 'package:provider/provider.dart';
 
-class NewsList extends StatelessWidget {
+class NewsList extends StatefulWidget{
+  @override
+  _NewsListState createState() => _NewsListState();
+}
+
+class _NewsListState extends State<NewsList> {
+  @override
+  void initState() {
+    super.initState();
+    Provider.of<NewsArticleListViewModel>(context,listen: false).populateTopHeadlines();
+  }
   @override
   Widget build(BuildContext context) {
     final vm = Provider.of<NewsArticleListViewModel>(context);
