@@ -17,6 +17,18 @@ class _NewsListPageState extends State<NewsListPage> {
         .populateTopHeadlines();
   }
 
+  Widget _buildList(NewsArticleListViewModel vm){
+    switch(vm.loadingstatus){
+      case LoadingStatus.searching:
+        return Align(child: CircularProgressIndicator());
+      case LoadingStatus.empty:
+        return Align(child: Text("No Result Found!"));
+      case LoadingStatus.completed:
+        return Expanded(child: NewsList(article: vm.article));
+
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final vm = Provider.of<NewsArticleListViewModel>(context);
@@ -41,7 +53,7 @@ class _NewsListPageState extends State<NewsListPage> {
                       _controller.clear();
                     })),
           ),
-          Expanded(child: NewsList(article: vm.article))
+          _buildList(vm)
         ],
       ),
     );

@@ -25,6 +25,7 @@ dependencies:
   cupertino_icons: ^0.1.2
   http:
   provider:
+  webview_flutter:
 
 dev_dependencies:
   flutter_test:
